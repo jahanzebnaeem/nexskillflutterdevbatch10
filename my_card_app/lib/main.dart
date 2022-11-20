@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
           backgroundColor: Colors.teal,
           appBar: AppBar(
@@ -10,16 +11,20 @@ void main() {
             title: Text('My Card'),
           ),
           body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                color: Colors.blue,
-                width: 100.0,
-                height: 100.0,
+              CircleAvatar(
+                radius: 60.0,
+                backgroundImage: NetworkImage(
+                    'https://pbs.twimg.com/media/FSA_6E0XMAAXRXI.jpg'),
               ),
-              Container(
-                color: Colors.red,
-                width: 100.0,
-                height: 100.0,
+              Text(
+                'Jahanzeb Naeem',
+                style: TextStyle(
+                  fontSize: 30.0,
+                  color: Colors.white,
+                  fontFamily: 'Pacifico',
+                ),
               ),
               Container(
                 color: Colors.white,
