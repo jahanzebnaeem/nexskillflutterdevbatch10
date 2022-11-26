@@ -6,32 +6,65 @@ void main() {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
           backgroundColor: Colors.teal,
-          appBar: AppBar(
-            backgroundColor: Colors.teal,
-            title: Text('My Card'),
-          ),
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                radius: 60.0,
-                backgroundImage: NetworkImage(
-                    'https://pbs.twimg.com/media/FSA_6E0XMAAXRXI.jpg'),
-              ),
-              Text(
-                'Jahanzeb Naeem',
-                style: TextStyle(
-                  fontSize: 30.0,
-                  color: Colors.white,
-                  fontFamily: 'Pacifico',
+          body: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  radius: 60.0,
+                  backgroundImage: AssetImage('images/Jahanzeb.jpeg'),
                 ),
-              ),
-              Container(
-                color: Colors.white,
-                width: 100.0,
-                height: 100.0,
-              ),
-            ],
+                Text(
+                  'Jahanzeb Naeem',
+                  style: TextStyle(
+                    fontSize: 40.0,
+                    color: Colors.white,
+                    fontFamily: 'Pacifico',
+                  ),
+                ),
+                Text(
+                  'CTO | Instructor',
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    color: Colors.white,
+                    letterSpacing: 2.0,
+                    fontFamily: 'Source Sans Pro',
+                  ),
+                ),
+                SizedBox(
+                  child: Divider(
+                    thickness: 3.0,
+                  ),
+                  width: 150.0,
+                ),
+                Container(
+                  color: Colors.white,
+                  padding: EdgeInsets.all(20.0),
+                  margin: EdgeInsets.symmetric(
+                    horizontal: 20.0,
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.phone,
+                        color: Colors.teal.shade600,
+                        size: 30.0,
+                      ),
+                      SizedBox(
+                        width: 15.0,
+                      ),
+                      Text(
+                        '+92-123-456-7890',
+                        style: TextStyle(
+                          fontSize: 30.0,
+                          color: Colors.teal.shade600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           )),
     ),
   );
