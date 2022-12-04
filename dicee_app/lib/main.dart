@@ -16,12 +16,26 @@ void main() {
   );
 }
 
-class DicePage extends StatelessWidget {
-  var leftDiceNumber = 1;
+class DicePage extends StatefulWidget {
+  const DicePage({Key? key}) : super(key: key);
+
+  @override
+  State<DicePage> createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+  int leftDiceNumber = 1;
+  int rightDiceNumber = 1;
 
   int generateRandomNum() {
-    var random = Random();
-    return random.nextInt(6) + 1;
+    return Random().nextInt(6) + 1;
+  }
+
+  void changeDiceFace() {
+    setState(() {
+      leftDiceNumber = generateRandomNum();
+      rightDiceNumber = generateRandomNum();
+    });
   }
 
   @override
@@ -37,8 +51,8 @@ class DicePage extends StatelessWidget {
                   'images/dice$leftDiceNumber.png',
                 ),
                 onTap: () {
-                  leftDiceNumber = generateRandomNum();
-                  print('$leftDiceNumber number');
+                  changeDiceFace();
+                  // print('$leftDiceNumber number');
                   // print('On tap left dice');
                 },
               ),
@@ -49,10 +63,12 @@ class DicePage extends StatelessWidget {
               padding: EdgeInsets.all(8.0),
               child: GestureDetector(
                 child: Image.asset(
-                  'images/dice2.png',
+                  'images/dice$rightDiceNumber.png',
                 ),
                 onTap: () {
-                  print('On tap right dice');
+                  changeDiceFace();
+                  // print('$rightDiceNumber number');
+                  // print('On tap right dice');
                 },
               ),
             ),
