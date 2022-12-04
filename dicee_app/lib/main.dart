@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   return runApp(
@@ -16,6 +17,13 @@ void main() {
 }
 
 class DicePage extends StatelessWidget {
+  var leftDiceNumber = 1;
+
+  int generateRandomNum() {
+    var random = Random();
+    return random.nextInt(6) + 1;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -24,16 +32,28 @@ class DicePage extends StatelessWidget {
           Expanded(
             child: Padding(
               padding: EdgeInsets.all(8.0),
-              child: Image.asset(
-                'images/dice1.png',
+              child: GestureDetector(
+                child: Image.asset(
+                  'images/dice$leftDiceNumber.png',
+                ),
+                onTap: () {
+                  leftDiceNumber = generateRandomNum();
+                  print('$leftDiceNumber number');
+                  // print('On tap left dice');
+                },
               ),
             ),
           ),
           Expanded(
             child: Padding(
               padding: EdgeInsets.all(8.0),
-              child: Image.asset(
-                'images/dice1.png',
+              child: GestureDetector(
+                child: Image.asset(
+                  'images/dice2.png',
+                ),
+                onTap: () {
+                  print('On tap right dice');
+                },
               ),
             ),
           ),
