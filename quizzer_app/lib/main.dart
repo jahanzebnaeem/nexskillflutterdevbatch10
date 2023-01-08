@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'question_bank.dart';
 
+QuestionBank questionBank = QuestionBank();
+
 void main() => runApp(Quizzer());
 
 class Quizzer extends StatelessWidget {
@@ -53,7 +55,7 @@ class _QuizPageState extends State<QuizPage> {
   //   Question(q: 'A slug\'s blood is green.', a: true)
   // ];
 
-  int questionNumber = 0;
+  // int questionNumber = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +70,7 @@ class _QuizPageState extends State<QuizPage> {
             child: Center(
               child: Text(
                 // 'This is where the question text will go.',
-                questionBank[questionNumber].questionText,
+                questionBank.getQuestionText(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -94,16 +96,17 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked true.
-                questionBank[questionNumber].questionAns = true;
-                if (questionBank[questionNumber].questionAns == true) {
+                // questionBank[questionNumber].questionAns = true;
+                if (questionBank.getQuestionAnswer() == true) {
                   print('your ans is correct');
                 } else {
                   print('your answer is wrong');
                 }
-                print(questionNumber);
-                print(questionBank[questionNumber].questionAns);
+                // print(questionNumber);
+                print(questionBank.getQuestionAnswer());
                 setState(() {
-                  questionNumber++;
+                  // questionNumber++;
+                  questionBank.nextQuestion();
                 });
               },
             ),
